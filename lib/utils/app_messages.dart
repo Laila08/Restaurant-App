@@ -1,0 +1,4 @@
+class AppMessages {
+  AppMessages._();
+
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1020548436639",
+    "project_id": "food-delivery-app-c31c0",
+    "storage_bucket": "food-delivery-app-c31c0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020548436639:android:d491cd6e0d492ce134c8aa",
+        "android_client_info": {
+          "package_name": "com.laila.food_delivery_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDun8cdeQ7Cr_k-P6WWkovnV-GwpekuIcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
