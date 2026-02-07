@@ -18,7 +18,7 @@ class CircleIcon extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(color: color, width: 1),
-          color: Colors.white.withOpacity(0.8),
+          color: Colors.white.withValues(alpha: 0.8),
         ),
         child: Center(child: Icon(icon, size: 20, color: Colors.red)),
       ),

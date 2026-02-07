@@ -18,7 +18,8 @@ class SearchCubit extends Cubit<SearchState> {
       emit(searchErrorState(e.toString()));
     }
   }
-  void clearResult(){
-    emit(SearchLoadedState(List<MealModel>.from([]),false));
+
+  void clearResult() {
+    emit(SearchLoadedState(List<MealModel>.from([]), false));
   }
 }

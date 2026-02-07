@@ -30,5 +30,22 @@ class BookingCubit extends Cubit<BookingState> {
       emit(BookingFailure(e.toString()));
     }
   }
+  Future<void> confirmBooking(String phone, double total) async {
+    emit(BookingLoading());
+    try {
+      final orderNumber = await bookingServicesImp.getNextOrderNumber(storeId: "default_store");
+      final booking = BookingModel(
+        id: documentIdFromLocalData(),
+        phone: phone,
+        totalPrice: total.toInt(),
+        pickupAfterMinutes: 30,
+        status: "pending",
+        orderNumber: orderNumber,
+      );
+      emit(BookingSuccess(booking));
+    } catch (e) {
+      emit(BookingFailure(e.toString()));
+    }
+  }
 
 }

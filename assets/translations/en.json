@@ -77,5 +77,20 @@
   "Favorites": "Favorites",
   "My Cart":"My Cart",
   "Confirm Order": "Confirm Order",
-  "Total": "Total"
+  "Total": "Total",
+  "See More": "See More",
+  "error_loading_meals": "Error loading meals",
+  "added_to_cart": "Added to cart",
+  "something_went_wrong": "Something went wrong. Please try again.",
+  "booking": "Booking",
+  "confirm_booking": "Confirm Booking",
+  "enter_phone": "Please enter your phone number",
+  "error_generic": "Something went wrong: %s",
+  "total": "Total: ",
+  "booking_details": "Booking Details",
+  "order_number": "Order Number",
+  "pickup_in": "Pickup in",
+  "status": "Status",
+  "booking_confirmed": "Booking confirmed!",
+  "all_label": "All"
 }

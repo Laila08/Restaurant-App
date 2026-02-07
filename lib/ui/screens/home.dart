@@ -1,15 +1,13 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_offline/flutter_offline.dart';
-import 'package:food_delivery/ui/screens/profile_screen.dart';
 import 'package:food_delivery/ui/screens/restaurant_about_screen.dart';
 import 'package:lottie/lottie.dart';
 import '../../utils/app_colors.dart';
 import 'cart_screen.dart';
+import 'cart_screen.dart';
 import 'category_screen.dart';
-import 'favorite_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

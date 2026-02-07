@@ -10,7 +10,12 @@ extension AppNumX on num {
       BorderRadius.vertical(bottom: Radius.circular(d));
 
   EdgeInsets get paddingAll => EdgeInsets.all(d);
-
+  EdgeInsets paddingOnly({
+    double top = 0,
+    double bottom = 0,
+    double left = 0,
+    double right = 0,
+  }) => EdgeInsets.only(top: top, bottom: bottom, left: left, right: right);
   EdgeInsets get paddingH => EdgeInsets.symmetric(horizontal: d);
   EdgeInsets get paddingV => EdgeInsets.symmetric(vertical: d);
 
@@ -34,7 +39,10 @@ extension ContextSizeX on BuildContext {
 
   double get appBarHeight => statusBar + kToolbarHeight;
 }
-
+extension BorderRadiusX on BorderRadius {
+  RoundedRectangleBorder toRoundedRectangleBorder() =>
+      RoundedRectangleBorder(borderRadius: this);
+}
 /// -------------------- NAVIGATION EXTENSIONS --------------------
 extension ContextNavX on BuildContext {
   ScaffoldMessengerState get messenger => ScaffoldMessenger.of(this);

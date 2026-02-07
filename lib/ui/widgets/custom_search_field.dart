@@ -12,13 +12,13 @@ class CustomSearchField extends StatelessWidget {
   IconData? icon;
   final Color textColor;
   final VoidCallback onPressed;
-  final String? Function(String?) validator;
+  //final String? Function(String?) validator;
   CustomSearchField(
       {super.key, this.textInputType,
       this.hint,
         this.focusNode,
       this.controller,
-      required this.validator,
+     // required this.validator,
       required this.onFieldSubmitted,
       required this.icon,
       required this.onChange,
@@ -35,7 +35,7 @@ class CustomSearchField extends StatelessWidget {
         focusNode: focusNode,
         cursorColor:  AppColors.primaryColor,
         keyboardType: textInputType,
-        validator: validator,
+        //validator: validator,
         style: TextStyle(
           color: textColor,
           fontWeight: FontWeight.w400,

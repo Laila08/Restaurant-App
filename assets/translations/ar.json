@@ -77,6 +77,18 @@
   "Favorites": "المفضلة",
   "My Cart":"محفظتي",
   "Confirm Order": "تأكيد الطلب",
-  "Total": "المجموع"
-
+  "Total": "المجموع",
+  "See More": "رؤية المزيد",
+  "error_loading_meals": "خطأ في تحميل الوجبات",
+  "added_to_cart": "تمت الإضافة إلى السلة",
+  "something_went_wrong": "حدث خطأ ما، حاول مرة أخرى.",
+  "booking": "الحجز",
+  "confirm_booking": "تأكيد الحجز",
+  "enter_phone": "يرجى إدخال رقم الهاتف",
+  "error_generic": "حدث خطأ: %s",
+  "total": "الإجمالي:  ",
+  "pickup_in": "الاستلام بعد",
+  "status": "الحالة",
+  "booking_confirmed": "تم تأكيد الحجز!",
+  "all_label":"كل"
 }

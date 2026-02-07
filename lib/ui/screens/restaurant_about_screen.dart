@@ -16,7 +16,6 @@ class RestaurantAboutScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // صورة أو لوجو (اختياري)
             Container(
               height: 160,
               width: double.infinity,
@@ -25,7 +24,7 @@ class RestaurantAboutScreen extends StatelessWidget {
                 color: Colors.orange.shade100,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.orange.withOpacity(0.25),
+                    color: Colors.orange.withValues(alpha: 0.25),
                     blurRadius: 12,
                     offset: const Offset(0, 6),
                   ),

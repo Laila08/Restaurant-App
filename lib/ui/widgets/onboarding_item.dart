@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../screens/register_screen.dart';
 import 'custom_indicator.dart';
 import '../screens/home.dart';
 

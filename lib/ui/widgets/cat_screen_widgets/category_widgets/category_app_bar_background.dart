@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../../../extensions/app_extensions.dart';
+import '../../../../utils/app_assets.dart';
 
 class CategoryAppBarBackground extends StatelessWidget {
   final double height;
@@ -18,14 +20,12 @@ class CategoryAppBarBackground extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Image.asset(
-            'assets/images/2746c772f3f577334eeee82bd86e6ff8c43c3075.png',
-            width: double.infinity,
-            fit: BoxFit.cover,
+            AppAssets.categoryBackground,
+            width: context.width,
             height: height,
+            fit: BoxFit.cover,
           ),
-          Positioned.fill(
-            child: child,
-          ),
+          Positioned.fill(child: child),
         ],
       ),
     );

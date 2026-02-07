@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery/ui/widgets/cat_screen_widgets/category_widgets/search_field_widget.dart';
-import 'package:food_delivery/ui/widgets/cat_screen_widgets/category_widgets/search_results_list.dart';
 import '../../../../controller/search_cubit/search_cubit.dart';
+import '../../../../extensions/app_extensions.dart';
+import '../../../../utils/app_colors.dart';
 import 'category_app_bar_background.dart';
-
 class CategorySliverAppBar extends StatelessWidget {
   final TextEditingController searchController;
   final FocusNode searchFocusNode;
@@ -32,13 +32,13 @@ class CategorySliverAppBar extends StatelessWidget {
         return false;
       },
       child: CategoryAppBarBackground(
-        height: 200,
+        height: 200.d,
         child: Stack(
           children: [
             Positioned(
-              left: 20,
-              right: 20,
-              top: 50,
+              left: 20.d,
+              right: 20.d,
+              top: 50.d,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -47,23 +47,19 @@ class CategorySliverAppBar extends StatelessWidget {
                     focusNode: searchFocusNode,
                     onClear: removeResult,
                   ),
-                  const SizedBox(height: 10),
+                  10.vBox,
                   Text(
                     'provide_best_food'.tr(),
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: AppColors.whiteColor,
                       fontWeight: FontWeight.w600,
                       fontSize: 25,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  15.vBox,
                 ],
               ),
             ),
-            // SearchResultsList(
-            //   controller: searchController,
-            //   focusNode: searchFocusNode,
-            // ),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 import 'package:food_delivery/utils/app_colors.dart';
 
 import '../../../../data/models/category_model.dart';
@@ -20,14 +21,16 @@ class GridCategoryList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color:AppColors.primaryColor.withValues(alpha: 0.5)),
+        border: Border.all(
+          color: AppColors.primaryColor.withValues(alpha: 0.5),
+        ),
         borderRadius: BorderRadius.circular(12),
       ),
       child: GridView.builder(
-        padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 20),
+        padding: 10.paddingH,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
           crossAxisSpacing: 10,

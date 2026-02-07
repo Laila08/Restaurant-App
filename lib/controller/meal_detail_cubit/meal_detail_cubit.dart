@@ -11,7 +11,9 @@ class MealDetailCubit extends Cubit<MealDetailState> {
   Future<void> getMealDetailsById(MealModel meal) async {
     emit(MealDetailLoadingState());
     try {
-      final MealDetailModel detail = await MealsRepo().getMealDetailsById(meal.mealId);
+      final MealDetailModel detail = await MealsRepo().getMealDetailsById(
+        meal.mealId,
+      );
       final detailWithPrice = detail.copyWith(price: meal.price);
       emit(MealDetailLoadedState(detailWithPrice));
     } catch (e) {
