@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/theme/app_text_styles.dart';
 
 class CartItemNamePrice extends StatelessWidget {
   final String name;
@@ -16,18 +17,12 @@ class CartItemNamePrice extends StatelessWidget {
           name,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 16.sp,
-          ),
+          style: AppTextStyles.font16Weight500,
         ),
         SizedBox(height: 8.h),
         Text(
           "\$${price.toStringAsFixed(2)}",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16.sp,
-          ),
+          style: AppTextStyles.font16Weight500,
         ),
       ],
     );

@@ -1,25 +1,29 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../data/models/meal_model.dart';
 import '../../../data/repos/meals_repo.dart';
+import '../../utils/app_messages.dart';
 part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
-  SearchCubit() : super(searchInitState());
+  final MealsRepo mealsRepo;
+  SearchCubit(this.mealsRepo) : super(SearchInitState());
+
   Future<void> searchMeals(String mealName) async {
+    if (mealName.trim().isEmpty) {
+      emit(SearchLoadedState([], false));
+      return;
+    }
+    emit(SearchInitState());
     try {
-      final List<MealModel> meals = await MealsRepo().searchMeals(mealName);
-      if (meals.isNotEmpty) {
-        emit(SearchLoadedState(meals, true));
-      } else {
-        emit(SearchLoadedState([], false));
-      }
+      final List<MealModel> meals = await mealsRepo.searchMeals(mealName);
+      emit(SearchLoadedState(meals, meals.isNotEmpty));
     } catch (e) {
-      emit(searchErrorState(e.toString()));
+      emit(SearchErrorState(AppMessages.searchError));
     }
   }
 
   void clearResult() {
-    emit(SearchLoadedState(List<MealModel>.from([]), false));
+    emit(SearchLoadedState([], false));
   }
 }

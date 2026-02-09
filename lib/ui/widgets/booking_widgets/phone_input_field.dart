@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../utils/app_colors.dart';
 import '../custom_search_field.dart';
 

@@ -16,17 +16,26 @@ class CartList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CartCubit, CartState>(
       buildWhen: (previous, current) =>
-      current is CartLoadingState || current is CartUpdatedState,
+          current is CartLoadingState ||
+          current is CartUpdatedState ||
+          current is CartInitialState,
       builder: (context, state) {
         if (state is CartLoadingState) {
           return CircularProgressIndicator().centered();
+        }
+        if (state is CartInitialState) {
+          return Lottie.asset(
+            AppAssets.emptyBoxLottie,
+            width: 250.w,
+            fit: BoxFit.cover,
+          ).centered();
         }
         if (state is CartUpdatedState) {
           final carts = state.mealCarts;
           final totalPrice = carts.fold<double>(
             0.0,
-                (sum, meal) =>
-            sum + (meal.price * (state.mealCounts[meal.mealId] ?? 1)),
+            (sum, meal) =>
+                sum + (meal.price * (state.mealCounts[meal.mealId] ?? 1)),
           );
 
           if (carts.isEmpty) {

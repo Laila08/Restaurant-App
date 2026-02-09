@@ -25,7 +25,8 @@ class SeeMoreButton extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => BlocProvider.value(
-                  value: context.read<MealCubit>()..getMealData(selectedCategory),
+                  value: context.read<MealCubit>()
+                    ..getMealData(selectedCategory),
                   child: AllMealsScreen(categoryName: selectedCategory),
                 ),
               ),

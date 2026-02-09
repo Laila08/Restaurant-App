@@ -14,16 +14,18 @@ class CustomSearchField extends StatefulWidget {
   IconData? icon;
   final Color textColor;
   final VoidCallback onPressed;
-  CustomSearchField(
-      {super.key, this.textInputType,
-      this.hint,
-        this.focusNode,
-      this.controller,
-      required this.onFieldSubmitted,
-      required this.icon,
-      required this.onChange,
-      required this.onPressed,
-      required this.textColor});
+  CustomSearchField({
+    super.key,
+    this.textInputType,
+    this.hint,
+    this.focusNode,
+    this.controller,
+    required this.onFieldSubmitted,
+    required this.icon,
+    required this.onChange,
+    required this.onPressed,
+    required this.textColor,
+  });
 
   @override
   State<CustomSearchField> createState() => _CustomSearchFieldState();
@@ -32,13 +34,12 @@ class CustomSearchField extends StatefulWidget {
 class _CustomSearchFieldState extends State<CustomSearchField> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return SizedBox(
       width: double.infinity,
       child: TextFormField(
         controller: widget.controller,
         focusNode: widget.focusNode,
-        cursorColor:  AppColors.primaryColor,
+        cursorColor: AppColors.primaryColor,
         keyboardType: widget.textInputType,
         style: TextStyle(
           color: widget.textColor,
@@ -47,32 +48,29 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
         ),
         decoration: InputDecoration(
           isDense: true,
-          contentPadding: const EdgeInsets.symmetric(vertical: -10, horizontal: 15),
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: -10,
+            horizontal: 15,
+          ),
           hintText: widget.hint?.tr(),
-          hintStyle:AppTextStyles.font14blackWeight500,
+          hintStyle: AppTextStyles.font14blackWeight500,
           filled: true,
           fillColor: Colors.white.withValues(alpha: 0.5),
           suffixIcon: IconButton(
-            icon: Icon(
-              widget.icon,
-              size: 25,
-              color:  AppColors.primaryColor,
-            ),
+            icon: Icon(widget.icon, size: 25, color: AppColors.primaryColor),
             onPressed: widget.onPressed,
           ),
 
           border: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.white),
-            borderRadius: BorderRadius.all(
-              Radius.circular(22),
-            ),
+            borderRadius: BorderRadius.all(Radius.circular(22)),
           ),
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
             borderRadius: BorderRadius.all(Radius.circular(22)),
           ),
-          focusedBorder:  OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.primaryColor,),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.primaryColor),
             borderRadius: BorderRadius.all(Radius.circular(22)),
           ),
           errorBorder: const OutlineInputBorder(

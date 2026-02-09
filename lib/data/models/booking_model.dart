@@ -26,7 +26,7 @@ class BookingModel {
       "pickupAfterMinutes": pickupAfterMinutes,
       "status": status,
       "createdAt": createdAt ?? FieldValue.serverTimestamp(),
-      "orderNumber":orderNumber
+      "orderNumber": orderNumber,
     };
   }
 
@@ -37,7 +37,8 @@ class BookingModel {
       totalPrice: (map["totalPrice"] ?? 0).toInt(),
       pickupAfterMinutes: (map["pickupAfterMinutes"] ?? 30).toInt(),
       status: map["status"] ?? "pending",
-      createdAt: map["createdAt"], orderNumber: '',
+      createdAt: map["createdAt"],
+      orderNumber: '',
     );
   }
 }

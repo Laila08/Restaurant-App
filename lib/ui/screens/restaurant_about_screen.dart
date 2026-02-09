@@ -13,7 +13,7 @@ class RestaurantAboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: "about_restaurant_title",
+        title: "about_restaurant_title".tr(),
         showBackButton: false,
         action: IconButton(
           icon: const Icon(Icons.language),
@@ -29,11 +29,7 @@ class RestaurantAboutScreen extends StatelessWidget {
       body: SingleChildScrollView(
         padding: 20.w.paddingAll,
         child: Column(
-          children: [
-            RestaurantIconWidget(),
-            20.h.vBox,
-            RestaurantInfoCard(),
-          ],
+          children: [RestaurantIconWidget(), 20.h.vBox, RestaurantInfoCard()],
         ),
       ),
     );

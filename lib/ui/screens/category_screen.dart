@@ -43,6 +43,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
           body: Stack(
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CategorySliverAppBar(
                     searchController: searchController,

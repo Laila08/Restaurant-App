@@ -21,10 +21,7 @@ class CartTotalSection extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Total".tr(),
-                style: AppTextStyles.font15PrimaryWeight600,
-              ),
+              Text("Total".tr(), style: AppTextStyles.font15PrimaryWeight600),
               Text(
                 "\$${totalPrice.toStringAsFixed(2)}",
                 style: AppTextStyles.font20Bold,

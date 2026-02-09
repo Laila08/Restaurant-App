@@ -1,15 +1,10 @@
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:equatable/equatable.dart';
-
-
-class CategoryModel extends Equatable{
+class CategoryModel {
   final String catId;
   final String catName;
   final String catImage;
   final String catDescription;
 
-  CategoryModel({
+  const CategoryModel({
     required this.catId,
     required this.catName,
     required this.catImage,
@@ -24,28 +19,4 @@ class CategoryModel extends Equatable{
       catDescription: json['strCategoryDescription'],
     );
   }
-
-  @override
-  // TODO: implement props
-  List<Object?> get props => [ catId, catName,catImage,catDescription];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

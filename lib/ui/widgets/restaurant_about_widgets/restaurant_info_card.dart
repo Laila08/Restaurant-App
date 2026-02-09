@@ -19,7 +19,7 @@ class RestaurantInfoCard extends StatelessWidget {
         border: Border.all(color: AppColors.orange, width: 2.r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.orange50.withOpacity(0.25),
+            color: AppColors.orange50.withValues(alpha: 0.25),
             blurRadius: 14.r,
             offset: Offset(0, 6.h),
           ),

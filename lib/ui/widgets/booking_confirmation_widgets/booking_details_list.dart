@@ -40,7 +40,7 @@ class BookingDetailsList extends StatelessWidget {
         30.h.vBox,
         BlocConsumer<BookingCubit, BookingState>(
           listenWhen: (previous, current) =>
-          current is BookingSuccess || current is BookingFailure,
+              current is BookingSuccess || current is BookingFailure,
           listener: (context, state) {
             if (state is BookingSuccess) {
               context.read<CartCubit>().clearCart();
@@ -61,7 +61,7 @@ class BookingDetailsList extends StatelessWidget {
             }
           },
           buildWhen: (previous, current) =>
-          current is BookingSuccess || current is BookingLoading,
+              current is BookingSuccess || current is BookingLoading,
           builder: (context, state) {
             final isLoading = state is BookingLoading;
             return Center(

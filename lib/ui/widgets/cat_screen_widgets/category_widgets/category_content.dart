@@ -1,13 +1,16 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 
 import '../../../../controller/category_cubit/category_cubit.dart';
 import '../../../../controller/meal_cubit/meal_cubit.dart';
-import '../../../../extensions/app_extensions.dart';
+import '../../../../theme/app_text_styles.dart';
 import 'grid_category_list.dart';
 import 'horizontal_category_list.dart';
 import 'category_header.dart';
+import 'horizontal_category_shimmer.dart';
 
 class CategoryContent extends StatefulWidget {
   const CategoryContent({super.key});
@@ -29,9 +32,21 @@ class _CategoryContentState extends State<CategoryContent> {
   Widget build(BuildContext context) {
     return BlocBuilder<CategoryCubit, CategoryState>(
       buildWhen: (previous, current) =>
-      current is CategoryLoadedState ||
-          current is CategoryLoadingState,
+          current is CategoryLoadedState || current is CategoryLoadingState,
       builder: (context, state) {
+        if (state is CategoryLoadingState) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "find_by_category".tr(),
+                style: AppTextStyles.font17PrimaryWeight600,
+              ).paddingV(10),
+              SizedBox(height: 100.h, child: const HorizontalCategoryShimmer()),
+            ],
+          ).paddingH(15.w).paddingV(5.h);
+        }
+
         if (state is CategoryLoadedState) {
           final categories = state.categories;
           final showAsGrid = state.showAsGrid;
@@ -52,30 +67,25 @@ class _CategoryContentState extends State<CategoryContent> {
                 height: showAsGrid ? 175.h : 100.h,
                 child: showAsGrid
                     ? GridCategoryList(
-                  categories: categories,
-                  selectedCategory: selectedCategory,
-                  onTap: (index) => _onCategoryTap(
-                    categories: categories,
-                    index: index,
-                  ),
-                )
+                        categories: categories,
+                        selectedCategory: selectedCategory,
+                        onTap: (index) => _onCategoryTap(
+                          categories: categories,
+                          index: index,
+                        ),
+                      )
                     : HorizontalCategoryList(
-                  categories: categories,
-                  selectedCategory: selectedCategory,
-                  onTap: (index) => _onCategoryTap(
-                    categories: categories,
-                    index: index,
-                  ),
-                ),
+                        categories: categories,
+                        selectedCategory: selectedCategory,
+                        onTap: (index) => _onCategoryTap(
+                          categories: categories,
+                          index: index,
+                        ),
+                      ),
               ),
             ],
           );
         }
-
-        if (state is CategoryLoadingState) {
-          return CircularProgressIndicator().centered();
-        }
-
         return const SizedBox.shrink();
       },
     );

@@ -11,24 +11,26 @@ class CartCubit extends Cubit<CartState> {
 
   List<MealModel> get myCarts => List.unmodifiable(_myCarts);
   Map<String, int> get mealCounts => Map.unmodifiable(_mealCounts);
+  void _emitUpdated() {
+    emit(
+      CartUpdatedState(
+        mealCarts: List.unmodifiable(_myCarts),
+        mealCounts: Map.unmodifiable(_mealCounts),
+      ),
+    );
+  }
 
   void addToCart(MealModel meal) {
-    emit(CartLoadingState());
-
     try {
-      if (!_myCarts.any((m) => m.mealId == meal.mealId)) {
+      final index = _myCarts.indexWhere((m) => m.mealId == meal.mealId);
+
+      if (index == -1) {
         _myCarts.add(meal);
         _mealCounts[meal.mealId] = 1;
       } else {
-        _mealCounts[meal.mealId] = (_mealCounts[meal.mealId] ?? 1) + 1;
+        _mealCounts[meal.mealId] = (_mealCounts[meal.mealId] ?? 0) + 1;
       }
-
-      emit(
-        CartUpdatedState(
-          List<MealModel>.from(_myCarts),
-          Map<String, int>.from(_mealCounts),
-        ),
-      );
+      _emitUpdated();
     } on Exception catch (e) {
       emit(CartErrorState(error: e.toString()));
     }
@@ -37,57 +39,41 @@ class CartCubit extends Cubit<CartState> {
   void removeFromCart(String mealId) {
     _myCarts.removeWhere((meal) => meal.mealId == mealId);
     _mealCounts.remove(mealId);
-
-    emit(
-      CartUpdatedState(
-        List<MealModel>.from(_myCarts),
-        Map<String, int>.from(_mealCounts),
-      ),
-    );
+    _emitUpdated();
   }
 
   void incrementMeal(String mealId) {
-    if (_mealCounts.containsKey(mealId)) {
-      _mealCounts[mealId] = _mealCounts[mealId]! + 1;
-
-      emit(
-        CartUpdatedState(
-          List<MealModel>.from(_myCarts),
-          Map<String, int>.from(_mealCounts),
-        ),
-      );
-    }
+    if (!_mealCounts.containsKey(mealId)) return;
+    _mealCounts[mealId] = _mealCounts[mealId]! + 1;
+    _emitUpdated();
   }
 
   void decrementMeal(String mealId) {
-    if ((_mealCounts[mealId] ?? 1) > 1) {
-      _mealCounts[mealId] = _mealCounts[mealId]! - 1;
+    if (!_mealCounts.containsKey(mealId)) return;
 
-      emit(
-        CartUpdatedState(
-          List<MealModel>.from(_myCarts),
-          Map<String, int>.from(_mealCounts),
-        ),
-      );
+    final current = _mealCounts[mealId]!;
+
+    if (current <= 1) {
+      removeFromCart(mealId);
+      return;
     }
+
+    _mealCounts[mealId] = current - 1;
+    _emitUpdated();
   }
 
   void clearCart() {
     _myCarts.clear();
     _mealCounts.clear();
-    emit(
-      CartUpdatedState(
-        List<MealModel>.from(_myCarts),
-        Map<String, int>.from(_mealCounts),
-      ),
-    );
+    _emitUpdated();
   }
 
   double get totalPrice {
     double total = 0;
-    for (var meal in _myCarts) {
-      final count = _mealCounts[meal.mealId] ?? 1;
-      total += (meal.price) * count;
+
+    for (final meal in _myCarts) {
+      final count = _mealCounts[meal.mealId] ?? 0;
+      total += meal.price * count;
     }
     return total;
   }

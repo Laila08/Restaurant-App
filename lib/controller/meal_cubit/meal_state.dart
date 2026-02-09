@@ -5,11 +5,21 @@ sealed class MealState {
   const MealState();
 }
 
-final class MealLoadingState extends MealState {}
+final class MealInitialState extends MealState {
+  const MealInitialState();
+}
+
+final class MealLoadingState extends MealState {
+  const MealLoadingState();
+}
 
 final class MealLoadedState extends MealState {
   final List<MealModel> meals;
   const MealLoadedState(this.meals);
+}
+
+final class MealEmptyState extends MealState {
+  const MealEmptyState();
 }
 
 final class MealErrorState extends MealState {

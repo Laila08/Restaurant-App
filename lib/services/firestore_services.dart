@@ -11,10 +11,6 @@ class FirestoreServices {
     await reference.set(data);
   }
 
-  Future<void> deleteData({required String path}) async {
-    final reference = FirebaseFirestore.instance.doc(path);
-    await reference.delete();
-  }
   Future<T> getDocument<T>({
     required String path,
     required T Function(Map<String, dynamic> data, String documentID) builder,
@@ -36,12 +32,20 @@ class FirestoreServices {
     }
     final snapshots = await query.get();
     final result = snapshots.docs
-        .map((snapshot) => builder(snapshot.data() as Map<String, dynamic>, snapshot.id))
+        .map(
+          (snapshot) =>
+              builder(snapshot.data() as Map<String, dynamic>, snapshot.id),
+        )
         .where((value) => value != null)
         .toList();
     if (sort != null) {
       result.sort(sort);
     }
     return result;
+  }
+
+  Future<void> deleteData({required String path}) async {
+    final reference = FirebaseFirestore.instance.doc(path);
+    await reference.delete();
   }
 }

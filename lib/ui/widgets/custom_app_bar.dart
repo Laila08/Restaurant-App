@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 import 'package:food_delivery/theme/app_text_styles.dart';
 import 'package:food_delivery/utils/app_colors.dart';
 
@@ -28,12 +28,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       leading: showBackButton
           ? IconButton(
-        icon: const Icon(
-          Icons.arrow_back_ios,
-          color: AppColors.blackColor,
-        ),
-        onPressed: onBackPressed ?? () => Navigator.of(context).pop(),
-      )
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: AppColors.blackColor,
+              ),
+              onPressed: onBackPressed ?? () => Navigator.of(context).pop(),
+            )
           : null,
       title: _buildTitle(),
       actions: action != null ? [action!] : null,
@@ -46,13 +46,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            title!.tr(),
+            title!,
             style: AppTextStyles.font20BlackWeight600,
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 2),
+          8.hBox,
           Text(
-            subtitle!.tr(),
+            subtitle!,
             style: AppTextStyles.font16BlackWeight500,
             textAlign: TextAlign.center,
           ),
@@ -60,7 +60,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       );
     } else if (title != null) {
       return Text(
-        title!.tr(),
+        title!,
         style: AppTextStyles.font20BlackWeight600,
         textAlign: TextAlign.center,
       );

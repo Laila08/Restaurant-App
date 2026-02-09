@@ -15,14 +15,11 @@ class BookingDetailRow extends StatelessWidget {
       children: [
         Expanded(
           flex: 3,
-          child: Text(
-            "$title:",
-            style:AppTextStyles.font16Weight500,
-          ),
+          child: Text(title, style: AppTextStyles.font16Weight500),
         ),
         Expanded(
           flex: 5,
-          child: Text(value, style:AppTextStyles.font16Weight500,),
+          child: Text(value, style: AppTextStyles.font16Weight500),
         ),
       ],
     ).paddingV(5.h);

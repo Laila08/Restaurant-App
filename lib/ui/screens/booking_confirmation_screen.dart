@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/data/models/booking_model.dart';
 import 'package:food_delivery/extensions/app_extensions.dart';
@@ -13,7 +14,7 @@ class BookingConfirmationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-      title: "confirm_booking",
+      title: "confirm_booking".tr(),
       showBackButton: true,
     ),
       body: BookingDetailsCard(booking: booking).centered(),

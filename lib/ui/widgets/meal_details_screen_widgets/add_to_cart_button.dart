@@ -23,7 +23,7 @@ class AddToCartButton extends StatelessWidget {
           SnackBar(
             content: Text('${meal.mealName} ${'added_to_cart'.tr()}'),
             duration: const Duration(seconds: 1),
-            backgroundColor: AppColors.doneColor,
+            backgroundColor: AppColors.primaryColor,
           ),
         );
       },

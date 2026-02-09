@@ -1,28 +1,33 @@
-import 'dart:math';
-
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/models/meal_model.dart';
 import '../../data/repos/meals_repo.dart';
+import '../../utils/app_messages.dart';
 part 'meal_state.dart';
 
 class MealCubit extends Cubit<MealState> {
-  MealCubit() : super(MealLoadingState());
+  final MealsRepo _repo;
+  MealCubit(this._repo) : super(MealInitialState());
   Future<void> getMealData(String categoryName) async {
-    emit(MealLoadingState());
+    final trimmed = categoryName.trim();
+    if (trimmed.isEmpty) {
+      emit(const MealErrorState(AppMessages.invalidCategory));
+      return;
+    }
+    emit(const MealLoadingState());
     try {
-      final List<MealModel> meals = await MealsRepo().getMealByCat(
-        categoryName,
-      );
+      final meals = await _repo.getMealByCat(trimmed);
+      if (meals.isEmpty) {
+        emit(const MealEmptyState());
+        return;
+      }
       emit(MealLoadedState(meals));
     } catch (e) {
-      emit(MealErrorState(e.toString()));
+      emit(const MealErrorState(AppMessages.somethingWentWrong));
     }
   }
 
   void clearResult() {
-    emit(MealLoadedState([]));
+    emit(const MealInitialState());
   }
 }

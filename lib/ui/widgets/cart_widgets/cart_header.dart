@@ -15,15 +15,14 @@ class CartHeader extends StatelessWidget {
       width: context.width,
       height: 90.h,
       color: AppColors.primaryColor,
-      child: Text(
-        "My Cart".tr(),
-        style: AppTextStyles.font20BlackWeight600,
-      ).centered().paddingOnlyDirectional(
-        bottom: 0.h,
-        top: 40.h,
-        end: 16.w,
-        start: 16.w,
-      ),
+      child: Text("My Cart".tr(), style: AppTextStyles.font20BlackWeight600)
+          .centered()
+          .paddingOnlyDirectional(
+            bottom: 0.h,
+            top: 40.h,
+            end: 16.w,
+            start: 16.w,
+          ),
     );
   }
 }

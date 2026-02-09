@@ -27,10 +27,7 @@ class CartItemActions extends StatelessWidget {
         ),
         Padding(
           padding: 8.w.paddingH,
-          child: Text(
-            count.toString(),
-            style: AppTextStyles.font16Weight500,
-          ),
+          child: Text(count.toString(), style: AppTextStyles.font16Weight500),
         ),
         IconButton(
           onPressed: () {

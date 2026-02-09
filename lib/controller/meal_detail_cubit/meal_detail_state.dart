@@ -1,6 +1,5 @@
 part of 'meal_detail_cubit.dart';
 
-@immutable
 sealed class MealDetailState {
   const MealDetailState();
 }

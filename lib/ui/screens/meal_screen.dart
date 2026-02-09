@@ -21,7 +21,7 @@ class MealScreen extends StatelessWidget {
       backgroundColor: AppColors.whiteColor,
       body: BlocBuilder<MealDetailCubit, MealDetailState>(
         buildWhen: (previous, current) =>
-        current is MealDetailLoadedState ||
+            current is MealDetailLoadedState ||
             current is MealDetailLoadedState,
         builder: (context, state) {
           if (state is MealDetailLoadingState) {

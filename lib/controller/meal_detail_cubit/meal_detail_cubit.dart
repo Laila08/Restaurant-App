@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:food_delivery/utils/app_messages.dart';
 
 import '../../data/models/meal_model.dart';
 import '../../data/repos/meals_repo.dart';
@@ -7,17 +7,21 @@ import '../../data/repos/meals_repo.dart';
 part 'meal_detail_state.dart';
 
 class MealDetailCubit extends Cubit<MealDetailState> {
-  MealDetailCubit() : super(MealDetailLoadingState());
+  final MealsRepo mealsRepo;
+  MealDetailCubit(this.mealsRepo) : super(MealDetailLoadingState());
+
   Future<void> getMealDetailsById(MealModel meal) async {
+    if (meal.mealId.isEmpty) {
+      emit(MealDetailErrorState(AppMessages.mealIdEmpty));
+      return;
+    }
     emit(MealDetailLoadingState());
     try {
-      final MealDetailModel detail = await MealsRepo().getMealDetailsById(
-        meal.mealId,
-      );
+      final detail = await mealsRepo.getMealDetailsById(meal.mealId);
       final detailWithPrice = detail.copyWith(price: meal.price);
       emit(MealDetailLoadedState(detailWithPrice));
     } catch (e) {
-      emit(MealDetailErrorState(e.toString()));
+      emit(MealDetailErrorState(AppMessages.failedToLoadMealDetails));
     }
   }
 }

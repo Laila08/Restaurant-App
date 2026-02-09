@@ -26,10 +26,10 @@ class MealBottomBar extends StatelessWidget {
             color: AppColors.primaryColor,
             boxShadow: [
               BoxShadow(
-                color: Colors.grey.withValues(alpha: 0.3),
+                color: AppColors.grayColor.withValues(alpha: 0.3),
                 blurRadius: 5.r,
                 offset: Offset(0, 2.h),
-              )
+              ),
             ],
           ),
           child: Row(

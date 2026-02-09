@@ -23,8 +23,7 @@ class MealSliverAppBar extends StatelessWidget {
         builder: (context, constraints) {
           final isCollapsed =
               constraints.maxHeight <=
-                  kToolbarHeight + MediaQuery.of(context).padding.top;
-
+              kToolbarHeight + MediaQuery.of(context).padding.top;
           return Container(
             color: isCollapsed ? AppColors.primaryColor : AppColors.whiteColor,
             child: FlexibleSpaceBar(

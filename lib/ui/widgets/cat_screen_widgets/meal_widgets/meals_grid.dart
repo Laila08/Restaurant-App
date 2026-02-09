@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../controller/meal_cubit/meal_cubit.dart';
 import 'meal_list.dart';
+import 'meal_shimmer_grid.dart';
 
 class MealsGrid extends StatelessWidget {
   final int? maxItems;
@@ -12,21 +14,33 @@ class MealsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MealCubit, MealState>(
-      buildWhen: (previous, current) =>
-      current is MealLoadingState || current is MealLoadedState,
       builder: (context, state) {
         if (state is MealLoadingState) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (state is MealLoadedState) {
+          return const MealShimmerGrid();
+        }
+
+        if (state is MealEmptyState) {
+          return Center(
+            child: Text(
+              '${"no_meals".tr()}. ${"no_meals_suggestion".tr()}',
+              textAlign: TextAlign.center,
+            ),
+          );
+        }
+
+        if (state is MealErrorState) {
+          return Center(child: Text(state.error));
+        }
+
+        if (state is MealLoadedState) {
           final meals = state.meals;
-          final displayCount = (maxItems != null && meals.length > maxItems!)
-              ? maxItems!
-              : meals.length;
+          final displayCount = maxItems == null
+              ? meals.length
+              : meals.length.clamp(0, maxItems!);
 
           return MealList(meals: meals, displayCount: displayCount);
-        } else {
-          return const SizedBox.shrink();
         }
+        return const SizedBox.shrink();
       },
     );
   }

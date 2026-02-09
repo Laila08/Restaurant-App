@@ -39,10 +39,12 @@ extension ContextSizeX on BuildContext {
 
   double get appBarHeight => statusBar + kToolbarHeight;
 }
+
 extension BorderRadiusX on BorderRadius {
   RoundedRectangleBorder toRoundedRectangleBorder() =>
       RoundedRectangleBorder(borderRadius: this);
 }
+
 /// -------------------- NAVIGATION EXTENSIONS --------------------
 extension ContextNavX on BuildContext {
   ScaffoldMessengerState get messenger => ScaffoldMessenger.of(this);

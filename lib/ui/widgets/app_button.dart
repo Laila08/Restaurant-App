@@ -50,7 +50,6 @@ class AppButton extends StatelessWidget {
                 spreadRadius: 0,
                 blurRadius: 8.r,
                 offset: Offset(0, 4.h),
-
               ),
             ],
           ),
@@ -63,12 +62,7 @@ class AppButton extends StatelessWidget {
                     color: AppColors.whiteColor,
                   ),
                 )
-              : (text != null
-                    ? Text(
-                        text!,
-                        style:style,
-                      ).centered()
-                    : child!),
+              : (text != null ? Text(text!, style: style).centered() : child!),
         ),
       ),
     );

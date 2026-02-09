@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../controller/booking/booking_cubit.dart';
 import '../../../utils/app_colors.dart';
@@ -22,7 +21,7 @@ class ConfirmBookingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<BookingCubit, BookingState>(
       listenWhen: (previous, current) =>
-      current is BookingSuccess || current is BookingFailure,
+          current is BookingSuccess || current is BookingFailure,
       listener: (context, state) {
         if (state is BookingSuccess) {
           Navigator.push(
@@ -44,7 +43,7 @@ class ConfirmBookingButton extends StatelessWidget {
         }
       },
       buildWhen: (previous, current) =>
-      current is BookingLoading || current is BookingSuccess,
+          current is BookingLoading || current is BookingSuccess,
       builder: (context, state) {
         final isLoading = state is BookingLoading;
         return AppButton(

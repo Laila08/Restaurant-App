@@ -15,8 +15,8 @@ final class CartErrorState extends CartState {
 }
 
 final class CartUpdatedState extends CartState {
-  List<MealModel> mealCarts;
+  final List<MealModel> mealCarts;
   final Map<String, int> mealCounts;
 
-  CartUpdatedState(this.mealCarts, this.mealCounts);
+  CartUpdatedState({required this.mealCarts, required this.mealCounts});
 }

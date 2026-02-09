@@ -1,10 +1,13 @@
+import 'package:food_delivery/utils/api_path.dart';
+import 'package:food_delivery/utils/app_messages.dart';
+
 import '../models/category_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class CategoryRepo{
+class CategoryRepo {
   Future<List<CategoryModel>> getCategory() async {
-    final response = await http.get(Uri.parse('https://www.themealdb.com/api/json/v1/1/categories.php'));
+    final response = await http.get(Uri.parse(ApiPath.getCategoryPath()));
 
     if (response.statusCode == 200) {
       final dataMapFromApi = json.decode(response.body);
@@ -12,11 +15,9 @@ class CategoryRepo{
 
       return categoriesListInMap
           .map((map) => CategoryModel.fromJson(map as Map<String, dynamic>))
-          .where((cat) => cat.catName != null && cat.catImage != null)
           .toList();
     } else {
-      throw Exception('Failed to load categories');
+      throw Exception(AppMessages.failedToLoadCategories);
     }
   }
-
 }

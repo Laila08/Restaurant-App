@@ -9,11 +9,7 @@ class AllMealsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: "all_label",
-        subtitle: categoryName,
-        showBackButton: true,
-      ),
+      appBar: CustomAppBar(title: categoryName, showBackButton: true),
       body: MealsGrid(),
     );
   }

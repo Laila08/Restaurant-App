@@ -5,16 +5,18 @@ sealed class CategoryState {
 }
 
 final class CategoryLoadingState extends CategoryState {
+  const CategoryLoadingState();
 }
 
 final class CategoryLoadedState extends CategoryState {
   final List<CategoryModel> categories;
   final String selectedCategory;
   final bool showAsGrid;
-  const CategoryLoadedState(
-      {required this.categories,
-      required this.selectedCategory,
-      this.showAsGrid = false});
+  const CategoryLoadedState({
+    required this.categories,
+    required this.selectedCategory,
+    this.showAsGrid = false,
+  });
 
   CategoryLoadedState copyWith({
     List<CategoryModel>? categories,
@@ -32,5 +34,4 @@ final class CategoryLoadedState extends CategoryState {
 final class CategoryErrorState extends CategoryState {
   final String error;
   const CategoryErrorState(this.error);
-
 }

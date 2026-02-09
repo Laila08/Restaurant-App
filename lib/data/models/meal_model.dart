@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 class MealModel {
@@ -24,7 +23,7 @@ class MealModel {
       mealId: json['idMeal'] ?? '',
       mealName: json['strMeal'] ?? 'Unnamed Meal',
       mealImage: json['strMealThumb'] ?? '',
-      price:generatePrice(),
+      price: generatePrice(),
     );
   }
 
@@ -42,6 +41,7 @@ class MealModel {
     );
   }
 }
+
 class MealDetailModel extends MealModel {
   final String instructions;
   final String mealCat;
@@ -90,57 +90,3 @@ class MealDetailModel extends MealModel {
     );
   }
 }
-
-
-/*
-class MealDetailModel extends MealModel {
-  final String instructions;
-  final String? mealCat;
-  final String? mealArea;
-
-  MealDetailModel({
-    required String mealId,
-    required String mealName,
-    required String mealImage,
-    bool isFav = false,
-    double price = 0.0,
-    required this.instructions,
-    this.mealCat,
-    this.mealArea,
-  }) : super(
-         mealId: mealId,
-         mealName: mealName,
-         mealImage: mealImage,
-         price: price,
-       );
-
-  factory MealDetailModel.fromJson(Map<String, dynamic> json) {
-    return MealDetailModel(
-      mealId: json['idMeal'],
-      mealName: json['strMeal'],
-      mealImage: json['strMealThumb'],
-      instructions: json['strInstructions'] ?? '',
-      mealCat: json['strCategory'] ?? '',
-      mealArea: json['strArea'] ?? '',
-    );
-  }
-  MealDetailModel copyWith({
-    String? mealId,
-    String? mealName,
-    String? mealImage,
-    String? instructions,
-    bool? isFav,
-    double? price,
-  }) {
-    return MealDetailModel(
-      mealId: mealId ?? this.mealId ?? '',
-      mealName: mealName ?? this.mealName ?? '',
-      mealImage: mealImage ?? this.mealImage ?? '',
-      instructions: instructions ?? this.instructions,
-      mealCat: mealCat ?? this.mealCat,
-      mealArea: mealArea ?? this.mealArea,
-      price: price ?? this.price,
-    );
-  }
-}
-*/

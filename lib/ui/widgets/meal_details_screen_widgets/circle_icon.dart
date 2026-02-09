@@ -29,7 +29,11 @@ class CircleIcon extends StatelessWidget {
           border: Border.all(color: color, width: 1.w),
           color: AppColors.whiteColor.withValues(alpha: 0.8),
         ),
-        child: Icon(icon, size: 20.sp, color: AppColors.primaryColor).centered(),
+        child: Icon(
+          icon,
+          size: 20.sp,
+          color: AppColors.primaryColor,
+        ).centered(),
       ),
     );
   }
