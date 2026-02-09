@@ -25,7 +25,7 @@ abstract class AppRouter {
         final meal = settings.arguments as MealDetailModel;
 
         return CupertinoPageRoute(
-          builder: (context) => MealScreen(meal: meal,),
+          builder: (context) => MealScreen(meal: meal),
           settings: settings,
         );
       case Routes.booking:
@@ -40,14 +40,13 @@ abstract class AppRouter {
       case Routes.mainPage:
         return CupertinoPageRoute(
           builder: (context) => MultiRepositoryProvider(
-            providers: [
-              RepositoryProvider(create: (_) => CategoryRepo()),
-            ],
+            providers: [RepositoryProvider(create: (_) => CategoryRepo())],
             child: MultiBlocProvider(
               providers: [
                 BlocProvider(
                   create: (context) =>
-                  CategoryCubit(context.read<CategoryRepo>())..getCategoryData(),
+                      CategoryCubit(context.read<CategoryRepo>())
+                        ..getCategoryData(),
                 ),
                 BlocProvider(create: (_) => SearchCubit()),
               ],
@@ -57,18 +56,16 @@ abstract class AppRouter {
           settings: settings,
         );
 
-
       default:
         return CupertinoPageRoute(
           builder: (context) => MultiRepositoryProvider(
-            providers: [
-              RepositoryProvider(create: (_) => CategoryRepo()),
-            ],
+            providers: [RepositoryProvider(create: (_) => CategoryRepo())],
             child: MultiBlocProvider(
               providers: [
                 BlocProvider(
                   create: (context) =>
-                  CategoryCubit(context.read<CategoryRepo>())..getCategoryData(),
+                      CategoryCubit(context.read<CategoryRepo>())
+                        ..getCategoryData(),
                 ),
                 BlocProvider(create: (_) => SearchCubit()),
               ],

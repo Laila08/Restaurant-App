@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../utils/app_colors.dart';
 import 'meal_app_bar_back_button.dart';
 import 'meal_app_bar_background.dart';
@@ -13,19 +14,23 @@ class MealSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       automaticallyImplyLeading: false,
-      expandedHeight: MediaQuery.of(context).size.height * 0.5,
+      expandedHeight: 0.5.sh,
       pinned: true,
       stretch: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparentColor,
       elevation: 0,
       flexibleSpace: LayoutBuilder(
         builder: (context, constraints) {
-          final isCollapsed = constraints.maxHeight <= kToolbarHeight + MediaQuery.of(context).padding.top;
+          final isCollapsed =
+              constraints.maxHeight <=
+                  kToolbarHeight + MediaQuery.of(context).padding.top;
 
           return Container(
-            color: isCollapsed ? AppColors.primaryColor : Colors.white,
+            color: isCollapsed ? AppColors.primaryColor : AppColors.whiteColor,
             child: FlexibleSpaceBar(
-              title: isCollapsed ? MealAppBarTitle(mealName: meal.mealName) : const SizedBox(),
+              title: isCollapsed
+                  ? MealAppBarTitle(mealName: meal.mealName)
+                  : const SizedBox(),
               centerTitle: true,
               background: Stack(
                 fit: StackFit.expand,

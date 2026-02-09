@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 import '../../../../controller/cart_cubit/cart_cubit.dart';
+import '../../../../theme/app_text_styles.dart';
 import '../../../../utils/app_colors.dart';
 
 class CartItemActions extends StatelessWidget {
@@ -13,7 +16,6 @@ class CartItemActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-
         IconButton(
           onPressed: () {
             context.read<CartCubit>().decrementMeal(mealId);
@@ -24,10 +26,10 @@ class CartItemActions extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
+          padding: 8.w.paddingH,
           child: Text(
             count.toString(),
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            style: AppTextStyles.font16Weight500,
           ),
         ),
         IconButton(

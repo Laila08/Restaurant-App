@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../controller/category_cubit/category_cubit.dart';
 import '../../../../controller/meal_cubit/meal_cubit.dart';
@@ -19,10 +19,7 @@ class CategoryContent extends StatefulWidget {
 class _CategoryContentState extends State<CategoryContent> {
   bool _isFirstLoad = true;
 
-  void _onCategoryTap({
-    required List categories,
-    required int index,
-  }) {
+  void _onCategoryTap({required List categories, required int index}) {
     final selectedCat = categories[index].catName;
     context.read<CategoryCubit>().selectCategory(selectedCat);
     context.read<MealCubit>().getMealData(selectedCat);
@@ -33,8 +30,7 @@ class _CategoryContentState extends State<CategoryContent> {
     return BlocBuilder<CategoryCubit, CategoryState>(
       buildWhen: (previous, current) =>
       current is CategoryLoadedState ||
-          current is CategoryLoadingState ||
-          current is CategoryErrorState,
+          current is CategoryLoadingState,
       builder: (context, state) {
         if (state is CategoryLoadedState) {
           final categories = state.categories;
@@ -51,9 +47,9 @@ class _CategoryContentState extends State<CategoryContent> {
               CategoryHeader(
                 showAsGrid: showAsGrid,
                 onToggle: () => context.read<CategoryCubit>().toggleViewMode(),
-              ).paddingV(10),
+              ),
               SizedBox(
-                height: showAsGrid ? 175 : 100,
+                height: showAsGrid ? 175.h : 100.h,
                 child: showAsGrid
                     ? GridCategoryList(
                   categories: categories,
@@ -77,11 +73,7 @@ class _CategoryContentState extends State<CategoryContent> {
         }
 
         if (state is CategoryLoadingState) {
-          return const Center(child: CircularProgressIndicator());
-        }
-
-        if (state is CategoryErrorState) {
-          return Center(child: Text('no_categories_found'.tr()));
+          return CircularProgressIndicator().centered();
         }
 
         return const SizedBox.shrink();

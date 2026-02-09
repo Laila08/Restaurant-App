@@ -1,11 +1,10 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../extensions/app_extensions.dart';
-import '../../utils/app_colors.dart';
 import '../widgets/booking_widgets/confirm_booking_button.dart';
 import '../widgets/booking_widgets/phone_input_field.dart';
 import '../widgets/booking_widgets/total_display.dart';
+import '../widgets/custom_app_bar.dart';
 
 class BookingScreen extends StatefulWidget {
   final double total;
@@ -27,21 +26,21 @@ class _BookingScreenState extends State<BookingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("booking".tr()), backgroundColor: AppColors.primaryColor),
+      appBar: CustomAppBar(title: "booking", showBackButton: true),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              TotalDisplay(total: widget.total),
-              30.vBox,
-              PhoneInputField(controller: _phoneController),
-              30.vBox,
-              ConfirmBookingButton(phoneController: _phoneController, total: widget.total),
-            ],
-          ),
-        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TotalDisplay(total: widget.total),
+            30.h.vBox,
+            PhoneInputField(controller: _phoneController),
+            30.h.vBox,
+            ConfirmBookingButton(
+              phoneController: _phoneController,
+              total: widget.total,
+            ),
+          ],
+        ).paddingAll(20.w),
       ),
     );
   }

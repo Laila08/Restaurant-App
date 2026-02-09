@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 import '../../../../data/models/category_model.dart';
 import '../../../../utils/app_colors.dart';
 import '../../category_item.dart';
@@ -18,28 +20,30 @@ class HorizontalCategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90,
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      height: 90.h,
+      padding: 10.h.paddingV,
+      margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border.all(color:AppColors.primaryColor.withValues(alpha: 0.5)),
-        borderRadius: BorderRadius.circular(12),
+        color: AppColors.whiteColor,
+        border: Border.all(
+          color: AppColors.primaryColor.withValues(alpha: 0.5),
+        ),
+        borderRadius: 12.r.radiusAll,
       ),
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: 10.w.paddingH,
         itemCount: categories.length,
-        separatorBuilder: (_, _) => const SizedBox(width: 8),
+        separatorBuilder: (_, _) => 8.w.hBox,
         itemBuilder: (context, index) {
           final category = categories[index];
           return SizedBox(
-            width: 90,
+            width: 90.w,
             child: CategoryItem(
               category: category,
               isSelected: selectedCategory == category.catName,
-              textHeight: 10,
-              fontSize: 14,
+              textHeight: 10.h,
+              fontSize: 14.sp,
               onTap: () => onTap(index),
             ),
           );

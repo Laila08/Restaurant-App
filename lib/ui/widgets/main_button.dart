@@ -1,41 +1,41 @@
-import 'package:flutter/material.dart';
-
-import '../../extensions/app_extensions.dart';
-import '../../utils/app_colors.dart';
-import '../../theme/app_text_styles.dart';
-
-class MainButton extends StatelessWidget {
-  final String? title;
-  final void Function()? onTap;
-  final Widget? child;
-  MainButton({super.key, this.title, this.onTap, this.child}) {
-    assert(title != null || child != null);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        alignment: Alignment.center,
-        width:double.infinity,
-        padding:14.paddingV,
-        decoration: BoxDecoration(
-          borderRadius: 25.radiusAll,
-          color: AppColors.primaryColor,
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.primaryColor.withValues(alpha: 0.25),
-              blurRadius: 8,
-              spreadRadius: 0,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: title != null
-            ? Text(title!, style: AppTextStyles.font15WhiteWeight500).centered()
-            : child,
-      ),
-    );
-  }
-}
+// import 'package:flutter/material.dart';
+//
+// import '../../extensions/app_extensions.dart';
+// import '../../utils/app_colors.dart';
+// import '../../theme/app_text_styles.dart';
+//
+// class MainButton extends StatelessWidget {
+//   final String? title;
+//   final void Function()? onTap;
+//   final Widget? child;
+//   MainButton({super.key, this.title, this.onTap, this.child}) {
+//     assert(title != null || child != null);
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return InkWell(
+//       onTap: onTap,
+//       child: Container(
+//         alignment: Alignment.center,
+//         width:double.infinity,
+//         padding:14.paddingV,
+//         decoration: BoxDecoration(
+//           borderRadius: 25.radiusAll,
+//           color: AppColors.primaryColor,
+//           boxShadow: [
+//             BoxShadow(
+//               color: AppColors.primaryColor.withValues(alpha: 0.25),
+//               blurRadius: 8,
+//               spreadRadius: 0,
+//               offset: const Offset(0, 4),
+//             ),
+//           ],
+//         ),
+//         child: title != null
+//             ? Text(title!, style: AppTextStyles.font15WhiteWeight500).centered()
+//             : child,
+//       ),
+//     );
+//   }
+// }

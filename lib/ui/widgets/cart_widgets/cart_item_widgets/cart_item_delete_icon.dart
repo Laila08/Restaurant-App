@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../controller/cart_cubit/cart_cubit.dart';
 import '../../../../utils/app_colors.dart';
@@ -11,16 +12,16 @@ class CartItemDeleteIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 10,
-      right: 10,
+      top: 10.h,
+      right: 10.w,
       child: IconButton(
         onPressed: () {
           context.read<CartCubit>().removeFromCart(mealId);
         },
-        icon: const Icon(
+        icon: Icon(
           Icons.delete_outline,
           color: AppColors.primaryColor,
-          size: 20,
+          size: 20.sp,
         ),
       ),
     );

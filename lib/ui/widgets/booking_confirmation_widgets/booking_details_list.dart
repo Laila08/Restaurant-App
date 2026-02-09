@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/theme/app_text_styles.dart';
 import '../../../controller/booking/booking_cubit.dart';
 import '../../../controller/cart_cubit/cart_cubit.dart';
 import '../../../data/models/booking_model.dart';
@@ -21,20 +23,24 @@ class BookingDetailsList extends StatelessWidget {
       children: [
         Text(
           "booking_details".tr(),
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: AppColors.primaryColor,
-          ),
+          style: AppTextStyles.font22PrimaryWeight600,
         ).centered(),
-        const SizedBox(height: 20),
-        BookingDetailRow(title: "order_number".tr(), value: booking.orderNumber),
+        20.h.vBox,
+        BookingDetailRow(
+          title: "order_number".tr(),
+          value: booking.orderNumber,
+        ),
         BookingDetailRow(title: "phone".tr(), value: booking.phone),
         BookingDetailRow(title: "total".tr(), value: "\$${booking.totalPrice}"),
-        BookingDetailRow(title: "pickup_in".tr(), value: "${booking.pickupAfterMinutes} mins"),
+        BookingDetailRow(
+          title: "pickup_in".tr(),
+          value: "${booking.pickupAfterMinutes} mins",
+        ),
         BookingDetailRow(title: "status".tr(), value: booking.status),
-        const SizedBox(height: 30),
+        30.h.vBox,
         BlocConsumer<BookingCubit, BookingState>(
+          listenWhen: (previous, current) =>
+          current is BookingSuccess || current is BookingFailure,
           listener: (context, state) {
             if (state is BookingSuccess) {
               context.read<CartCubit>().clearCart();
@@ -54,6 +60,8 @@ class BookingDetailsList extends StatelessWidget {
               );
             }
           },
+          buildWhen: (previous, current) =>
+          current is BookingSuccess || current is BookingLoading,
           builder: (context, state) {
             final isLoading = state is BookingLoading;
             return Center(

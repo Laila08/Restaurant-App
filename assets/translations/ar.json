@@ -90,5 +90,15 @@
   "pickup_in": "الاستلام بعد",
   "status": "الحالة",
   "booking_confirmed": "تم تأكيد الحجز!",
-  "all_label":"كل"
+  "all_label":"كل",
+  "Phone_Number": "رقم الهاتف",
+  "about_restaurant_title": "عن المطعم",
+  "about_restaurant_name": "مطعم أورنج بايتس 🍔🔥",
+  "about_restaurant_description": "أورنج بايتس هو مطعم وجبات سريعة مريح يقدم برغر طازج، بطاطا مقرمشة، وصلصات لذيذة تُحضّر يوميًا. نركز على الجودة، الخدمة السريعة، وتجربة دافئة لكل عميل.",
+  "about_restaurant_location_title": "الموقع",
+  "about_restaurant_location_value": "فلسطين - غزة، شارع الرمال",
+  "about_restaurant_working_hours_title": "ساعات العمل",
+  "about_restaurant_working_hours_value": "يوميًا: 10:00 صباحًا - 12:00 منتصف الليل",
+  "about_restaurant_phone_title": "الهاتف",
+  "about_restaurant_phone_value": "+970 599 123 456"
 }

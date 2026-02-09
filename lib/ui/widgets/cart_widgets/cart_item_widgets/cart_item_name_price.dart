@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CartItemNamePrice extends StatelessWidget {
   final String name;
@@ -15,12 +16,18 @@ class CartItemNamePrice extends StatelessWidget {
           name,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 16.sp,
+          ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
         Text(
           "\$${price.toStringAsFixed(2)}",
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16.sp,
+          ),
         ),
       ],
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'circle_icon.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/utils/app_colors.dart';
 
 class MealAppBarBackButton extends StatelessWidget {
   const MealAppBarBackButton({super.key});
@@ -8,12 +8,12 @@ class MealAppBarBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 20,
-      left: 20,
-      child: CircleIcon(
-        icon: Icons.arrow_back_ios,
-        onTap: () => Navigator.pop(context),
-        color: Colors.white,
+      top: 32.h,
+      left: 20.w,
+      child: IconButton(
+        icon: Icon(Icons.arrow_back_ios),
+        onPressed: () => Navigator.pop(context),
+        color: AppColors.whiteColor,
       ),
     );
   }

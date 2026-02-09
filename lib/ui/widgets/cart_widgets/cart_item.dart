@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery/data/models/meal_model.dart';
 import 'package:food_delivery/extensions/app_extensions.dart';
 import 'package:food_delivery/utils/app_colors.dart';
@@ -20,39 +21,39 @@ class CartItem extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
           child: Container(
             decoration: BoxDecoration(
               color: AppColors.whiteColor,
-              borderRadius:15.radiusAll,
+              borderRadius: 15.r.radiusAll,
               boxShadow: [
                 BoxShadow(
                   color: AppColors.grayColor.withValues(alpha: 0.08),
-                  spreadRadius: 1,
-                  blurRadius: 4,
-                  offset: const Offset(1, 1),
+                  spreadRadius: 1.r,
+                  blurRadius: 4.r,
+                  offset: Offset(1.w, 1.h),
                 ),
               ],
             ),
             child: Row(
               children: [
                 CartItemImage(imageUrl: meal.mealImage),
-                10.hBox,
+                10.w.hBox,
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CartItemNamePrice(name: meal.mealName, price: mealTotal),
-                      10.vBox,
+                      10.h.vBox,
                       CartItemActions(mealId: meal.mealId, count: count),
                     ],
                   ),
                 ),
               ],
-            ).paddingAll(8)
+            ).paddingAll(8.w),
           ),
         ),
-        CartItemDeleteIcon(mealId: meal.mealId,)
+        CartItemDeleteIcon(mealId: meal.mealId),
       ],
     );
   }

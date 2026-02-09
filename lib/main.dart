@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery/controller/cart_cubit/cart_cubit.dart';
 import 'package:food_delivery/controller/meal_cubit/meal_cubit.dart';
 import 'package:food_delivery/controller/meal_detail_cubit/meal_detail_cubit.dart';
-import 'package:food_delivery/controller/search_cubit/search_cubit.dart';
 import 'app/delivery_app.dart';
 
 Future<void> main() async {

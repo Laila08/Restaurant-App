@@ -1,16 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../routes/app_router.dart';
 import '../routes/routes.dart';
-import '../ui/screens/home.dart';
 
 class DeliveryApp extends StatelessWidget {
   const DeliveryApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ScreenUtilInit(
+      designSize: const Size(393, 825),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) =>  MaterialApp(
         debugShowCheckedModeBanner: false,
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
@@ -23,8 +27,9 @@ class DeliveryApp extends StatelessWidget {
             iconTheme: IconThemeData(color: Colors.black),
           ),
         ),
-      onGenerateRoute: AppRouter.generateRoute,
-      initialRoute: Routes.mainPage,
+        onGenerateRoute: AppRouter.generateRoute,
+        initialRoute: Routes.mainPage,
+      ),
     );
   }
 }

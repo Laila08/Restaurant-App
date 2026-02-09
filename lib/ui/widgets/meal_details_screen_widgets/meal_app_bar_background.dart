@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/utils/app_colors.dart';
 
 class MealAppBarBackground extends StatelessWidget {
   final dynamic meal;
@@ -12,8 +14,8 @@ class MealAppBarBackground extends StatelessWidget {
         meal.mealImage ?? '',
         fit: BoxFit.cover,
         errorBuilder: (context, error, stackTrace) => Container(
-          color: Colors.grey[200],
-          child: const Icon(Icons.broken_image, size: 50),
+          color: AppColors.grayOpacity,
+          child: Icon(Icons.broken_image, size: 50.sp),
         ),
       ),
     );

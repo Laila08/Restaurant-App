@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/theme/app_text_styles.dart';
 
 import '../../utils/app_colors.dart';
 
-class CustomSearchField extends StatelessWidget {
+class CustomSearchField extends StatefulWidget {
   TextInputType? textInputType;
   final FocusNode? focusNode;
   String? hint;
@@ -12,13 +14,11 @@ class CustomSearchField extends StatelessWidget {
   IconData? icon;
   final Color textColor;
   final VoidCallback onPressed;
-  //final String? Function(String?) validator;
   CustomSearchField(
       {super.key, this.textInputType,
       this.hint,
         this.focusNode,
       this.controller,
-     // required this.validator,
       required this.onFieldSubmitted,
       required this.icon,
       required this.onChange,
@@ -26,36 +26,39 @@ class CustomSearchField extends StatelessWidget {
       required this.textColor});
 
   @override
+  State<CustomSearchField> createState() => _CustomSearchFieldState();
+}
+
+class _CustomSearchFieldState extends State<CustomSearchField> {
+  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return SizedBox(
       width: double.infinity,
       child: TextFormField(
-        controller: controller,
-        focusNode: focusNode,
+        controller: widget.controller,
+        focusNode: widget.focusNode,
         cursorColor:  AppColors.primaryColor,
-        keyboardType: textInputType,
-        //validator: validator,
+        keyboardType: widget.textInputType,
         style: TextStyle(
-          color: textColor,
+          color: widget.textColor,
           fontWeight: FontWeight.w400,
           fontSize: 17,
         ),
         decoration: InputDecoration(
           isDense: true,
           contentPadding: const EdgeInsets.symmetric(vertical: -10, horizontal: 15),
-          hintText: hint,
-          hintStyle:
-               TextStyle(color: AppColors.primaryColor, fontWeight: FontWeight.bold),
+          hintText: widget.hint?.tr(),
+          hintStyle:AppTextStyles.font14blackWeight500,
           filled: true,
-          fillColor: Colors.white.withOpacity(0.5),
+          fillColor: Colors.white.withValues(alpha: 0.5),
           suffixIcon: IconButton(
             icon: Icon(
-              icon,
+              widget.icon,
               size: 25,
               color:  AppColors.primaryColor,
             ),
-            onPressed: onPressed,
+            onPressed: widget.onPressed,
           ),
 
           border: const OutlineInputBorder(
@@ -82,9 +85,9 @@ class CustomSearchField extends StatelessWidget {
           ),
         ),
         onChanged: (value) {
-          onChange(value);
+          widget.onChange(value);
         },
-        onFieldSubmitted: (_) => onFieldSubmitted(),
+        onFieldSubmitted: (_) => widget.onFieldSubmitted(),
       ),
     );
   }

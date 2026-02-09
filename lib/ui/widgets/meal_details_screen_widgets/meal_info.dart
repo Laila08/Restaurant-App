@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/theme/app_text_styles.dart';
 
 import '../../../utils/app_colors.dart';
 
@@ -10,7 +12,7 @@ class MealInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(13.0),
+      padding: EdgeInsets.all(13.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -18,28 +20,31 @@ class MealInfo extends StatelessWidget {
             meal.mealName ?? '',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+            style: AppTextStyles.font23Bold,
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "\$${NumberFormat('#,###').format(meal.price ?? 0)}",
-                style: TextStyle(color: AppColors.primaryColor, fontWeight: FontWeight.w600, fontSize: 18),
+                style: AppTextStyles.font17PrimaryWeight600,
               ),
               Text(
                 meal.mealArea ?? '',
-                style: TextStyle(color: AppColors.primaryColor, fontWeight: FontWeight.w500, fontSize: 16),
+                style: AppTextStyles.font16PrimaryWeight600,
               ),
             ],
           ),
-          const SizedBox(height: 25),
-          Text('description'.tr(), style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
-          const SizedBox(height: 10),
+          SizedBox(height: 25.h),
+          Text(
+            'description'.tr(),
+            style: AppTextStyles.font16Weight500,
+          ),
+          SizedBox(height: 10.h),
           Text(
             meal.instructions ?? '',
-            style: const TextStyle(color: Color(0xff878787)),
+            style: TextStyle(color: AppColors.grayColor),
           ),
         ],
       ),

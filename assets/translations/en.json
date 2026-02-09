@@ -92,5 +92,17 @@
   "pickup_in": "Pickup in",
   "status": "Status",
   "booking_confirmed": "Booking confirmed!",
-  "all_label": "All"
+  "all_label": "All",
+  "Phone_Number": "Phone Number",
+  "about_restaurant_title": "About Restaurant",
+  "about_restaurant_name": "Orange Bites Restaurant 🍔🔥",
+  "about_restaurant_description": "Orange Bites is a cozy fast-food restaurant that serves fresh burgers, crispy fries, and delicious sauces made daily. We focus on quality, fast service, and a warm experience for every customer.",
+  "about_restaurant_location_title": "Location",
+  "about_restaurant_location_value": "Palestine - Gaza, Al-Rimal Street",
+  "about_restaurant_working_hours_title": "Working Hours",
+  "about_restaurant_working_hours_value": "Everyday: 10:00 AM - 12:00 AM",
+  "about_restaurant_phone_title": "Phone",
+  "about_restaurant_phone_value": "+970 599 123 456"
+
+
 }

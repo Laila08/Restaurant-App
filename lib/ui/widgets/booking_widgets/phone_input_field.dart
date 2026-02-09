@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../utils/app_colors.dart';
+import '../custom_search_field.dart';
 
 class PhoneInputField extends StatelessWidget {
   final TextEditingController controller;
@@ -7,14 +10,16 @@ class PhoneInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return CustomSearchField(
       controller: controller,
-      keyboardType: TextInputType.phone,
-      decoration: const InputDecoration(
-        labelText: "Phone Number",
-        border: OutlineInputBorder(),
-        prefixIcon: Icon(Icons.phone),
-      ),
+      textInputType: TextInputType.phone,
+      hint: "Phone_Number",
+      icon: Icons.phone,
+      textColor: AppColors.blackColor,
+      onFieldSubmitted: () {},
+      onChange: (value) {},
+      onPressed: () {},
+      focusNode: null,
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,6 +12,8 @@ class MealsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MealCubit, MealState>(
+      buildWhen: (previous, current) =>
+      current is MealLoadingState || current is MealLoadedState,
       builder: (context, state) {
         if (state is MealLoadingState) {
           return const Center(child: CircularProgressIndicator());
@@ -23,10 +24,8 @@ class MealsGrid extends StatelessWidget {
               : meals.length;
 
           return MealList(meals: meals, displayCount: displayCount);
-        } else if (state is MealErrorState) {
-          return Center(child: Text('error_loading_meals'.tr()));
         } else {
-          return const SizedBox();
+          return const SizedBox.shrink();
         }
       },
     );

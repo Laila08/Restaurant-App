@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 import '../../../utils/app_colors.dart';
 import 'add_to_cart_button.dart';
 import 'meal_price.dart';
@@ -11,22 +13,22 @@ class MealBottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       bottom: 0,
-      left: 1,
-      right: 1,
+      left: 1.w,
+      right: 1.w,
       child: Material(
         color: Colors.transparent,
         child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          height: 55,
+          margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
+          height: 58.h,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
+            borderRadius: 50.r.radiusAll,
             color: AppColors.primaryColor,
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withValues(alpha: 0.3),
-                blurRadius: 5,
-                offset: const Offset(0, 2),
+                blurRadius: 5.r,
+                offset: Offset(0, 2.h),
               )
             ],
           ),
@@ -34,7 +36,10 @@ class MealBottomBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MealPrice(meal: meal),
-              AddToCartButton(meal: meal),
+              SizedBox(
+                width: context.width * 0.5,
+                child: AddToCartButton(meal: meal),
+              ),
             ],
           ),
         ),

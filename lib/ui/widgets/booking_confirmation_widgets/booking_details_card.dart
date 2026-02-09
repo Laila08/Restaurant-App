@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../data/models/booking_model.dart';
 import '../../../extensions/app_extensions.dart';
 import '../../../utils/app_colors.dart';
@@ -11,19 +12,19 @@ class BookingDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: 20.paddingAll,
-      padding: 20.paddingAll,
+      margin: 20.w.paddingAll,
+      padding: 20.w.paddingAll,
       decoration: BoxDecoration(
-        color: AppColors.primaryColor.withValues(alpha: 0.05),
-        borderRadius: BorderRadius.circular(20),
+        color: AppColors.orange100,
+        borderRadius: 20.r.radiusAll,
         boxShadow: [
           BoxShadow(
-            color: AppColors.primaryColor.withValues(alpha: 0.4),
-            blurRadius: 15,
-            offset: const Offset(0,5),
+            color: AppColors.orange100,
+            blurRadius: 15.r,
+            offset: Offset(0, 5.h),
           ),
         ],
-        border: Border.all(color: AppColors.primaryColor, width: 2),
+        border: Border.all(color: AppColors.primaryColor, width: 2.w),
       ),
       child: BookingDetailsList(booking: booking),
     );

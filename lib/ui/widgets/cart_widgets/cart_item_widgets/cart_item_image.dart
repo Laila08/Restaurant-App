@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 import '../../../../utils/app_colors.dart';
 
 class CartItemImage extends StatelessWidget {
@@ -9,17 +11,17 @@ class CartItemImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 100,
+      width: 100.w,
+      height: 100.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: 15.r.radiusAll,
         color: AppColors.primaryColor.withAlpha(80),
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: 15.r.radiusAll,
         child: imageUrl != null && imageUrl!.isNotEmpty
             ? Image.network(imageUrl!, fit: BoxFit.cover)
-            : Container(color: Colors.grey[300]),
+            : Container(color: AppColors.grayOpacity),
       ),
     );
   }

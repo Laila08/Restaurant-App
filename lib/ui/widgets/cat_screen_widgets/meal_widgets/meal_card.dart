@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
+import 'package:food_delivery/utils/app_colors.dart';
 
 import '../../../../data/models/meal_model.dart';
 import 'meal_image.dart';
@@ -13,20 +16,20 @@ class MealCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 2,
-      shadowColor: Colors.grey.withValues(alpha: 0.5),
-      borderRadius: BorderRadius.circular(15),
+      shadowColor: AppColors.grayColor.withValues(alpha: 0.5),
+      borderRadius: 15.r.radiusAll,
       child: Container(
-        padding: const EdgeInsets.all(9),
+        padding: 9.w.paddingAll,
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
+          color: AppColors.whiteColor,
+          borderRadius: 15.r.radiusAll,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MealImage(imageUrl: meal.mealImage),
-            const SizedBox(height: 8),
+            8.h.vBox,
             MealInfo(name: meal.mealName, price: meal.price),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_delivery/utils/app_colors.dart';
 import 'dart:ui' as ui;
 import '../../controller/search_cubit/search_cubit.dart';
 import '../widgets/cat_screen_widgets/category_widgets/category_content.dart';
@@ -24,7 +25,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
     searchFocusNode.dispose();
     super.dispose();
   }
-
   void removeResult(BuildContext context) {
     searchController.clear();
     searchFocusNode.unfocus();
@@ -39,7 +39,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         behavior: HitTestBehavior.translucent,
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.whiteColor,
           body: Stack(
             children: [
               Column(

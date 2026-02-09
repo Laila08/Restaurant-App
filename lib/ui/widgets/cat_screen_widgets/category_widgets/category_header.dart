@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:food_delivery/theme/app_text_styles.dart';
 
 import '../../../../utils/app_colors.dart';
 
@@ -16,16 +18,12 @@ class CategoryHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
       child: Row(
         children: [
           Text(
             'find_by_category'.tr(),
-            style: TextStyle(
-              color: AppColors.primaryColor,
-              fontWeight: FontWeight.w600,
-              fontSize: 17,
-            ),
+            style: AppTextStyles.font17PrimaryWeight600,
           ),
           const Spacer(),
           IconButton(

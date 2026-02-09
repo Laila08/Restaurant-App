@@ -1,8 +1,9 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
+import 'package:food_delivery/theme/app_text_styles.dart';
 
-import '../../../../utils/app_colors.dart';
 
 class MealInfo extends StatelessWidget {
   final String name;
@@ -21,21 +22,13 @@ class MealInfo extends StatelessWidget {
             name,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
-              fontSize: 18,
-            ),
+            style:AppTextStyles.font16BlackWeight500,
           ),
         ),
-        const SizedBox(height: 5),
+        5.hBox,
         Text(
           "\$${price.toStringAsFixed(2)}",
-          style: TextStyle(
-            color: AppColors.primaryColor,
-            fontWeight: FontWeight.bold,
-            fontSize: 17,
-          ),
+          style: AppTextStyles.font17PrimaryWeight600,
         ),
       ],
     );

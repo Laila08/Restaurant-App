@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery/data/models/meal_model.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 import 'package:food_delivery/utils/app_colors.dart';
 import '../../controller/meal_detail_cubit/meal_detail_cubit.dart';
-import '../widgets/custom_progress.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/meal_details_screen_widgets/meal_bottom_bar.dart';
@@ -15,13 +17,15 @@ class MealScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       body: BlocBuilder<MealDetailCubit, MealDetailState>(
+        buildWhen: (previous, current) =>
+        current is MealDetailLoadedState ||
+            current is MealDetailLoadedState,
         builder: (context, state) {
           if (state is MealDetailLoadingState) {
-            return const Center(child: Customprogress());
+            return CircularProgressIndicator().centered();
           } else if (state is MealDetailLoadedState) {
             final meal = state.meal;
             return Stack(
@@ -30,21 +34,16 @@ class MealScreen extends StatelessWidget {
                   slivers: [
                     MealSliverAppBar(meal: meal),
                     SliverList(
-                      delegate: SliverChildListDelegate([
-                        MealInfo(meal: meal),
-                      ]),
+                      delegate: SliverChildListDelegate([MealInfo(meal: meal)]),
                     ),
-                    const SliverFillRemaining(
-                      hasScrollBody: false,
-                      child: SizedBox(height: 60),
-                    ),
+                    SliverFillRemaining(hasScrollBody: false, child: 60.h.vBox),
                   ],
                 ),
                 MealBottomBar(meal: meal),
               ],
             );
           } else if (state is MealDetailErrorState) {
-            return const Center(child: Text('Error loading meal'));
+            return Center(child: Text("error_loading_meals".tr()));
           } else {
             return const SizedBox.shrink();
           }

@@ -6,7 +6,6 @@ import 'package:food_delivery/ui/screens/restaurant_about_screen.dart';
 import 'package:lottie/lottie.dart';
 import '../../utils/app_colors.dart';
 import 'cart_screen.dart';
-import 'cart_screen.dart';
 import 'category_screen.dart';
 
 class Home extends StatefulWidget {

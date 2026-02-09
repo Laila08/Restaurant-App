@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 
 class MealImage extends StatelessWidget {
   final String imageUrl;
@@ -8,14 +10,14 @@ class MealImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(15),
+      borderRadius: 15.r.radiusAll,
       child: Image.network(
         imageUrl,
-        height: 130,
+        height: 130.h,
         width: double.infinity,
         fit: BoxFit.cover,
         errorBuilder: (context, error, stackTrace) =>
-        const Icon(Icons.broken_image, size: 60),
+            Icon(Icons.broken_image, size: 60.sp),
       ),
     );
   }

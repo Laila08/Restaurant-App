@@ -26,7 +26,9 @@ class SearchFieldWidget extends StatelessWidget {
       },
       builder: (context, state) {
         final showClearIcon =
-            state is SearchLoadedState && state.showResults && controller.text.isNotEmpty;
+            state is SearchLoadedState &&
+            state.showResults &&
+            controller.text.isNotEmpty;
 
         return CustomSearchField(
           focusNode: focusNode,
@@ -38,7 +40,8 @@ class SearchFieldWidget extends StatelessWidget {
           onFieldSubmitted: () {
             FocusScope.of(context).unfocus();
             final searchState = context.read<SearchCubit>().state;
-            if (searchState is SearchLoadedState && searchState.meals.isNotEmpty) {
+            if (searchState is SearchLoadedState &&
+                searchState.meals.isNotEmpty) {
               context.read<SearchCubit>().clearResult();
               controller.clear();
             }
