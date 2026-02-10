@@ -14,8 +14,11 @@ class TotalDisplay extends StatelessWidget {
       text: TextSpan(
         style: AppTextStyles.font22PrimaryWeight600,
         children: [
-          TextSpan(text: "total".tr()),
-          TextSpan(text: "\$$total", style: AppTextStyles.font20BlackWeight600),
+          TextSpan(text: "Total".tr()),
+          TextSpan(
+            text: " \$$total",
+            style: AppTextStyles.font20BlackWeight600,
+          ),
         ],
       ),
     );
