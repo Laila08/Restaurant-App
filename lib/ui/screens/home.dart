@@ -4,7 +4,7 @@ import 'package:flutter_offline/flutter_offline.dart';
 import 'package:food_delivery/ui/screens/restaurant_about_screen.dart';
 import '../../utils/app_colors.dart';
 import '../widgets/app_bottom_navigation_bar.dart';
-import '../widgets/offline_widget.dart';
+import '../widgets/offline_widgets/offline_widget.dart';
 import 'cart_screen.dart';
 import 'category_screen.dart';
 

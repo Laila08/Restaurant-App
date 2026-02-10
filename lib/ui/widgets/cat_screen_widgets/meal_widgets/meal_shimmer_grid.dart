@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'meal_card_shimmer.dart';
+import 'shimmer/meal_card_shimmer.dart';
 
 class MealShimmerGrid extends StatelessWidget {
   final int itemCount;

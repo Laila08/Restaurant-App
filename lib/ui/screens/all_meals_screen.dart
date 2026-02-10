@@ -4,13 +4,18 @@ import '../widgets/custom_app_bar.dart';
 
 class AllMealsScreen extends StatelessWidget {
   final String categoryName;
-  const AllMealsScreen({super.key, required this.categoryName});
+  final TextEditingController searchController;
+  const AllMealsScreen({
+    super.key,
+    required this.categoryName,
+    required this.searchController,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(title: categoryName, showBackButton: true),
-      body: MealsGrid(),
+      body: MealsGrid(searchController: searchController),
     );
   }
 }

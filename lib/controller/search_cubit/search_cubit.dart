@@ -14,10 +14,10 @@ class SearchCubit extends Cubit<SearchState> {
       emit(SearchLoadedState([], false));
       return;
     }
-    emit(SearchInitState());
+    emit(SearchLoadingState());
     try {
       final List<MealModel> meals = await mealsRepo.searchMeals(mealName);
-      emit(SearchLoadedState(meals, meals.isNotEmpty));
+      emit(SearchLoadedState(meals, true));
     } catch (e) {
       emit(SearchErrorState(AppMessages.searchError));
     }

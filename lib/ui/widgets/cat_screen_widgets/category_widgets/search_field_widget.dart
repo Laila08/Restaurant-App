@@ -19,16 +19,11 @@ class SearchFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchCubit, SearchState>(
-      buildWhen: (previous, current) {
-        return current is SearchLoadedState &&
-            previous is SearchLoadedState &&
-            current.showResults != previous.showResults;
-      },
       builder: (context, state) {
         final showClearIcon =
             state is SearchLoadedState &&
-            state.showResults &&
-            controller.text.isNotEmpty;
+                state.showResults &&
+                controller.text.isNotEmpty;
 
         return CustomSearchField(
           focusNode: focusNode,
@@ -39,12 +34,6 @@ class SearchFieldWidget extends StatelessWidget {
           onPressed: onClear,
           onFieldSubmitted: () {
             FocusScope.of(context).unfocus();
-            final searchState = context.read<SearchCubit>().state;
-            if (searchState is SearchLoadedState &&
-                searchState.meals.isNotEmpty) {
-              context.read<SearchCubit>().clearResult();
-              controller.clear();
-            }
           },
           onChange: (value) {
             if (value.isNotEmpty) {

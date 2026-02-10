@@ -9,7 +9,20 @@ abstract class AppTextStyles {
     color: AppColors.primaryColor,
     fontWeight: FontWeight.w600,
   );
-
+  static final font16Gray700Weight500 = TextStyle(
+    fontSize: 16.sp,
+    color: Colors.grey.shade700,
+    fontWeight: FontWeight.w500,
+  );
+  static final font14Primary = TextStyle(
+    fontSize: 14.sp,
+    color: AppColors.primaryColor.withValues(alpha: 0.7),
+  );
+  static final font18Primary700Weight600 = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w600,
+    color: AppColors.primaryColor,
+  );
   static final font17BlackWeight400 = TextStyle(
     fontSize: 17.sp,
     color: AppColors.blackColor,

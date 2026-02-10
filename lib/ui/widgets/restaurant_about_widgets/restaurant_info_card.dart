@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 import 'package:food_delivery/utils/app_colors.dart';
 import '../../../theme/app_text_styles.dart';
 import 'info_tile.dart';
@@ -12,7 +13,7 @@ class RestaurantInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(18.r),
+      padding: 18.h.paddingAll,
       decoration: BoxDecoration(
         color: AppColors.orange50,
         borderRadius: BorderRadius.circular(22.r),

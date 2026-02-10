@@ -5,16 +5,16 @@ import 'package:food_delivery/theme/app_text_styles.dart';
 import '../../utils/app_colors.dart';
 
 class CustomSearchField extends StatefulWidget {
-  TextInputType? textInputType;
+  final TextInputType? textInputType;
   final FocusNode? focusNode;
-  String? hint;
-  TextEditingController? controller;
+  final String? hint;
+  final TextEditingController? controller;
   final VoidCallback onFieldSubmitted;
   final Function onChange;
-  IconData? icon;
+  final IconData? icon;
   final Color textColor;
   final VoidCallback onPressed;
-  CustomSearchField({
+  const CustomSearchField({
     super.key,
     this.textInputType,
     this.hint,

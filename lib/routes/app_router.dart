@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_delivery/controller/booking/booking_cubit.dart';
 import 'package:food_delivery/data/models/meal_model.dart';
 import 'package:food_delivery/routes/routes.dart';
-import 'package:food_delivery/ui/screens/all_meals_screen.dart';
 import 'package:food_delivery/ui/screens/home.dart';
 import 'package:food_delivery/ui/screens/meal_screen.dart';
 import '../ui/screens/booking_screen.dart';
@@ -12,12 +11,6 @@ import '../ui/screens/splash_screen.dart';
 abstract class AppRouter {
   static Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.allMeals:
-        String categoryName = settings.arguments as String;
-        return CupertinoPageRoute(
-          builder: (context) => AllMealsScreen(categoryName: categoryName),
-          settings: settings,
-        );
       case Routes.mealsDetails:
         final meal = settings.arguments as MealDetailModel;
 

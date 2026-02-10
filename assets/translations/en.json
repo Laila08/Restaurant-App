@@ -39,5 +39,10 @@
   "about_restaurant_phone_title": "Phone",
   "about_restaurant_phone_value": "+970 599 123 456",
   "no_meals": "No meals available at the moment",
-  "no_meals_suggestion": "Try selecting a different category!"
+  "no_meals_suggestion": "Try selecting a different category!",
+  "loading": "Loading...",
+  "oops": "OOPS...",
+  "noInternet": "NO INTERNET CONNECTION!",
+  "noInternetConnectionInfo":
+  "Internet connection lost. Check your connection and try again."
 }

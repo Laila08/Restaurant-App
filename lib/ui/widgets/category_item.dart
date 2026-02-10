@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_delivery/extensions/app_extensions.dart';
-import 'package:food_delivery/ui/widgets/shimmer_text.dart';
+import 'package:food_delivery/ui/widgets/cat_screen_widgets/shimmer_text.dart';
 import '../../data/models/category_model.dart';
 import '../../utils/app_colors.dart';
 
@@ -23,6 +23,12 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = TextStyle(
+      color: isSelected ? AppColors.whiteColor : AppColors.blackColor,
+      fontWeight: FontWeight.w500,
+      fontSize: fontSize.sp,
+    );
+
     return Material(
       elevation: 2,
       shadowColor: AppColors.grayColor.withValues(alpha: 0.04),
@@ -51,11 +57,7 @@ class CategoryItem extends StatelessWidget {
               text: category.catName,
               height: textHeight.d,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: isSelected ? AppColors.whiteColor : AppColors.blackColor,
-                fontWeight: FontWeight.w500,
-                fontSize: fontSize.sp,
-              ),
+              style: textStyle,
             ),
           ],
         ),

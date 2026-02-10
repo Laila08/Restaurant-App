@@ -5,10 +5,11 @@ import 'package:food_delivery/theme/app_text_styles.dart';
 import 'package:food_delivery/ui/widgets/app_button.dart';
 
 import '../../../controller/cart_cubit/cart_cubit.dart';
+import '../../../data/models/meal_model.dart' show MealModel;
 import '../../../utils/app_colors.dart';
 
 class AddToCartButton extends StatelessWidget {
-  final dynamic meal;
+  final MealModel meal;
   const AddToCartButton({super.key, required this.meal});
 
   @override
@@ -22,7 +23,7 @@ class AddToCartButton extends StatelessWidget {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('${meal.mealName} ${'added_to_cart'.tr()}'),
-            duration: const Duration(seconds: 1),
+            duration: const Duration(seconds: 4),
             backgroundColor: AppColors.primaryColor,
           ),
         );

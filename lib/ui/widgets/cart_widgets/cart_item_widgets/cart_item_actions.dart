@@ -14,24 +14,25 @@ class CartItemActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartCubit = context.read<CartCubit>();
     return Row(
       children: [
         IconButton(
           onPressed: () {
-            context.read<CartCubit>().decrementMeal(mealId);
+            cartCubit.decrementMeal(mealId);
           },
           icon: const Icon(
             Icons.remove_circle_outline,
             color: AppColors.primaryColor,
           ),
         ),
-        Padding(
-          padding: 8.w.paddingH,
-          child: Text(count.toString(), style: AppTextStyles.font16Weight500),
-        ),
+        Text(
+          count.toString(),
+          style: AppTextStyles.font16Weight500,
+        ).paddingH(8.w),
         IconButton(
           onPressed: () {
-            context.read<CartCubit>().incrementMeal(mealId);
+            cartCubit.incrementMeal(mealId);
           },
           icon: const Icon(
             Icons.add_circle_outline,

@@ -9,7 +9,8 @@ import '../../../../controller/meal_cubit/meal_cubit.dart';
 import '../../../screens/all_meals_screen.dart';
 
 class SeeMoreButton extends StatelessWidget {
-  const SeeMoreButton({super.key});
+  final TextEditingController searchController;
+  const SeeMoreButton({super.key, required this.searchController});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,10 @@ class SeeMoreButton extends StatelessWidget {
                 builder: (context) => BlocProvider.value(
                   value: context.read<MealCubit>()
                     ..getMealData(selectedCategory),
-                  child: AllMealsScreen(categoryName: selectedCategory),
+                  child: AllMealsScreen(
+                    categoryName: selectedCategory,
+                    searchController: searchController,
+                  ),
                 ),
               ),
             );

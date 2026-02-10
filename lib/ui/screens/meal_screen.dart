@@ -10,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../widgets/meal_details_screen_widgets/meal_bottom_bar.dart';
 import '../widgets/meal_details_screen_widgets/meal_info.dart';
 import '../widgets/meal_details_screen_widgets/meal_sliver_app_bar.dart';
+import '../widgets/meal_info_shimmer.dart';
 
 class MealScreen extends StatelessWidget {
   final MealModel meal;
@@ -25,7 +26,7 @@ class MealScreen extends StatelessWidget {
             current is MealDetailLoadedState,
         builder: (context, state) {
           if (state is MealDetailLoadingState) {
-            return CircularProgressIndicator().centered();
+            return MealInfoShimmer();
           } else if (state is MealDetailLoadedState) {
             final meal = state.meal;
             return Stack(
@@ -43,7 +44,7 @@ class MealScreen extends StatelessWidget {
               ],
             );
           } else if (state is MealDetailErrorState) {
-            return Center(child: Text("error_loading_meals".tr()));
+            return Text("error_loading_meals".tr()).centered();
           } else {
             return const SizedBox.shrink();
           }

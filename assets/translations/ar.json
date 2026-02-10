@@ -39,5 +39,10 @@
   "about_restaurant_phone_title": "الهاتف",
   "about_restaurant_phone_value": "+970 599 123 456",
   "no_meals": "لا توجد وجبات حالياً",
-  "no_meals_suggestion": "جرّب اختيار تصنيف آخر!"
+  "no_meals_suggestion": "جرّب اختيار تصنيف آخر!",
+  "loading": "جاري التحميل...",
+  "oops": "عفوًا...",
+  "noInternet": "لا يوجد اتصال بالإنترنت!",
+  "noInternetConnectionInfo":  "تم فقدان الاتصال بالإنترنت. تحقق من الاتصال وحاول مرة أخرى."
+
 }

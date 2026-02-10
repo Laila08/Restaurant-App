@@ -27,7 +27,7 @@ class AppBottomNavigationBar extends StatelessWidget {
       items: const [
         Icon(Icons.home, color: AppColors.whiteColor),
         Icon(Icons.shopping_cart_outlined, color: AppColors.whiteColor),
-        Icon(Icons.person, color: AppColors.whiteColor),
+        Icon(Icons.info_outline, color: AppColors.whiteColor),
       ],
     );
   }

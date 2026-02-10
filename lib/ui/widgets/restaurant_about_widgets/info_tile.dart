@@ -25,7 +25,7 @@ class InfoTile extends StatelessWidget {
           padding: 10.w.paddingAll,
           decoration: BoxDecoration(
             color: AppColors.orange100,
-            borderRadius:14.r.radiusAll,
+            borderRadius: 14.r.radiusAll,
           ),
           child: Icon(icon, color: AppColors.primaryColor),
         ),

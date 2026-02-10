@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/extensions/app_extensions.dart';
-import 'package:food_delivery/theme/app_text_styles.dart';
 import 'package:food_delivery/utils/app_colors.dart';
+
+import 'app_bar_title.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -35,38 +35,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               onPressed: onBackPressed ?? () => Navigator.of(context).pop(),
             )
           : null,
-      title: _buildTitle(),
+      title: AppBarTitle(title: title, subtitle: subtitle),
       actions: action != null ? [action!] : null,
     );
-  }
-
-  Widget _buildTitle() {
-    if (title != null && subtitle != null) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            title!,
-            style: AppTextStyles.font20BlackWeight600,
-            textAlign: TextAlign.center,
-          ),
-          8.hBox,
-          Text(
-            subtitle!,
-            style: AppTextStyles.font16BlackWeight500,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      );
-    } else if (title != null) {
-      return Text(
-        title!,
-        style: AppTextStyles.font20BlackWeight600,
-        textAlign: TextAlign.center,
-      );
-    } else {
-      return const SizedBox.shrink();
-    }
   }
 
   @override

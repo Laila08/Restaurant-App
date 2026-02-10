@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/data/models/meal_model.dart';
 import 'package:food_delivery/extensions/app_extensions.dart';
 import '../../../utils/app_colors.dart';
 import 'add_to_cart_button.dart';
 import 'meal_price.dart';
 
 class MealBottomBar extends StatelessWidget {
-  final dynamic meal;
+  final MealModel meal;
   const MealBottomBar({super.key, required this.meal});
 
   @override

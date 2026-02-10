@@ -13,10 +13,7 @@ class BookingConfirmationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-      title: "confirm_booking".tr(),
-      showBackButton: true,
-    ),
+      appBar: CustomAppBar(title: "confirm_booking".tr(), showBackButton: true),
       body: BookingDetailsCard(booking: booking).centered(),
     );
   }

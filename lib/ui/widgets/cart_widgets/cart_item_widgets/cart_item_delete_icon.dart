@@ -11,9 +11,11 @@ class CartItemDeleteIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = Directionality.of(context) == TextDirection.rtl;
     return Positioned(
       top: 10.h,
-      right: 10.w,
+      right: isArabic ? null : 10.w,
+      left: isArabic ? 10.w : null,
       child: IconButton(
         onPressed: () {
           context.read<CartCubit>().removeFromCart(mealId);

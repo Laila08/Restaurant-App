@@ -8,9 +8,4 @@ class AppMessages {
   static const failedToLoadCategories = "Failed to load categories";
   static const searchError = "Failed to search meals";
   static const emptySearchQuery = "Search query is empty";
-  static const loading = "Loading...";
-  static const oops = "OOPS...";
-  static const noInternet = "NO INTERNET CONNECTION!";
-  static const noInternetConnectionInfo =
-      "Internet connection lost. Check your connection and try again.";
-}
+ }

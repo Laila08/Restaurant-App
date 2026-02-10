@@ -9,6 +9,7 @@ final class SearchLoadedState extends SearchState {
   bool showResults = false;
   SearchLoadedState(this.meals, this.showResults);
 }
+class SearchLoadingState extends SearchState {}
 
 final class SearchErrorState extends SearchState {
   String errorMsg;

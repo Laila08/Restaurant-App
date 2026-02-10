@@ -7,8 +7,13 @@ import 'see_more_button.dart';
 class MealList extends StatelessWidget {
   final List meals;
   final int displayCount;
-
-  const MealList({super.key, required this.meals, required this.displayCount});
+  final TextEditingController searchController;
+  const MealList({
+    super.key,
+    required this.meals,
+    required this.displayCount,
+    required this.searchController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +31,13 @@ class MealList extends StatelessWidget {
               mainAxisSpacing: 10.h,
               childAspectRatio: 0.85,
             ),
-            itemBuilder: (context, index) => MealItem(meal: meals[index]),
+            itemBuilder: (context, index) => MealItem(
+              meal: meals[index],
+              searchController: searchController,
+            ),
           ),
-          if (meals.length > displayCount) SeeMoreButton(),
+          if (meals.length > displayCount)
+            SeeMoreButton(searchController: searchController),
         ],
       ),
     );

@@ -25,10 +25,15 @@ class _CategoryScreenState extends State<CategoryScreen> {
     searchFocusNode.dispose();
     super.dispose();
   }
+
   void removeResult(BuildContext context) {
-    searchController.clear();
-    searchFocusNode.unfocus();
-    context.read<SearchCubit>().clearResult();
+    if (searchController.text.isNotEmpty) {
+      searchController.clear();
+      searchFocusNode.unfocus();
+      context.read<SearchCubit>().clearResult();
+    } else {
+      searchFocusNode.requestFocus();
+    }
   }
 
   @override
@@ -51,7 +56,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     removeResult: () => removeResult(context),
                   ),
                   const CategoryContent(),
-                  Expanded(child: MealsGrid(maxItems: 4)),
+                  Expanded(
+                    child: MealsGrid(
+                      maxItems: 4,
+                      searchController: searchController,
+                    ),
+                  ),
                 ],
               ),
               SearchResultsList(

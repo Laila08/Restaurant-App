@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_delivery/extensions/app_extensions.dart';
 import 'package:food_delivery/utils/app_colors.dart';
 
 class RestaurantIconWidget extends StatelessWidget {
@@ -11,7 +12,7 @@ class RestaurantIconWidget extends StatelessWidget {
       height: 160.h,
       width: double.infinity,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(22.r),
+        borderRadius:22.r.radiusAll,
         color: AppColors.orange100,
         boxShadow: [
           BoxShadow(
